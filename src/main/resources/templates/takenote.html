@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Notes of you</title>
+<link rel="stylesheet" type="text/css"
+	href="/webjars/bootstrap/css/bootstrap.min.css" />
+ <link rel="stylesheet"href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+<body>
+	<div class="container text-center">
+		<div style= "margin-top: 30px">
+			<p style= "font-size: 40px;margin-bottom: 70px" >
+			WELCOM
+			</p>
+
+		</div>
+
+		<div style= "margin-bottom: 30px">
+			<h1>All Notes</h1>
+		</div>
+
+		<div>
+			<table class="table table-strped table-bordered">
+				<thead class="thead-dark">
+					<tr>
+						<th>Title</th>
+						<th>Content</th>
+						<th>Date</th>
+						<th>Del Note</th>
+						<th>Edit</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="note: ${takenote1}">
+						<td th:text="${note.tieude}">Title</td>
+						<td th:text="${note.noidung}">Content</td>
+						<td th:text="${new java.text.SimpleDateFormat('dd MMM yyyy').format(note.ngaytao)}">Date</td>
+			
+						<td><a th:href="@{'/deleted/' + ${note.stt}}"
+							 onclick="return confirm('Are you sure?');"><i class="fa fa-trash" style="font-size:20px;color:black"></i></a>
+					    </td>
+						<td><a th:href="@{'/edit/' + ${note.stt}}" ><i class="fa fa-edit" style="font-size:20px;color:black" ></i></a> </td>
+					</tr>
+				</tbody>
+			</table>
+			<div>&nbsp;</div>
+			<div>
+				<form style="margin-left: 107px" th:action="@{/takenotes}">
+					<input type="text" name="keyword" th:value="${keyword1}" />
+					&nbsp; <input type="submit" value="Search" /> &nbsp; 
+					<input type="button" value="Refresh" onclick="clearFilter()"/>
+				</form>
+			</div>
+<!-- 			<div>
+				<form action="/takenotes/filter" method="GET">
+					<input type="text" name="user_id">
+					<input type="submit" value="Filter">
+				</form>
+			</div> -->
+			<div>&nbsp;</div>
+			<h4>
+				<a th:href="@{/list_users}">Back</a>
+			</h4>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		function clearFilter(){
+			window.location = '/takenotes';
+			}
+	</script>
+</body>
+</html>

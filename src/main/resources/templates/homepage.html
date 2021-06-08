@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>HomePage</title>
+<link rel="stylesheet" type="text/css"
+	href="/webjars/bootstrap/css/bootstrap.min.css" />
+
+</head>
+<body>
+	<div class="container text-center"
+		style="margin-top: 100px; color: black">
+		<div>
+			<h1>Welcom to myWeb</h1>
+		</div>
+		<div>
+			<div
+				style="margin-left: 440px; margin-right: 790px; width: 226px; height: 40px; background: gray none repeat scroll 0% 0%">
+				<div>
+					<h3>
+						<a th:href="@{/login}"
+							style="size: 14px; text-align: center; color: white;">Login</a>
+					</h3>
+				</div>
+				<div
+					style="margin-top: 14px; margin-left: 0px; margin-right: 790px; width: 226px; height: 40px; background: gray none repeat scroll 0% 0%">
+					<h3>
+						<a th:href="@{/register}" 
+							style="color: white; text-align: center">Register</a>
+					</h3>
+				</div>
+			</div>
+
+			<!-- 			<h3>
+				<a th:href="@{/takenote}" style="color: black">Take Note</a>
+			</h3> -->
+		</div>
+	</div>
+</body>
+</html>
